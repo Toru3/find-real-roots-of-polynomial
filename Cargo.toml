@@ -1,0 +1,24 @@
+[package]
+name = "find-real-roots-of-polynomial"
+version = "0.1.0"
+authors = ["Toru3 <ryuutet@gmail.com>"]
+edition = "2018"
+description = "find all real roots of a polynomial"
+license = "MIT OR Apache-2.0"
+documentation = "https://docs.rs/find-real-roots-of-polynomial"
+repository = "https://gitlab.com/Toru3/find-real-roots-of-polynomial"
+readme = "README.md"
+keywords = ["algebra", "polynomial", "root-finding"]
+categories = ["algorithms", "mathematics"]
+
+[dependencies]
+polynomial-ring = "0.3.2"
+num-traits = "0.2.14"
+[dev-dependencies]
+rand = "0.8.4"
+num = "0.4.0"
+[package.metadata.docs.rs]
+rustdoc-args = [
+    "--html-in-header",
+    "katex.html",
+]
