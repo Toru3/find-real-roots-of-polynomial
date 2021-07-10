@@ -332,7 +332,7 @@ fn a() {
     }
     let f = f;
     let limit = BigRational::new(BigInt::from(1), BigInt::from(8));
-    let sc = SturmChain::<BigRational>::new(f.clone());
+    let sc = SturmChain::<BigRational>::new(f);
     let roots = sc.find_all_real_roots(&limit);
     for i in 1..=20 {
         let r = BigRational::from(BigInt::from(i));
