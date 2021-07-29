@@ -1,6 +1,6 @@
 [package]
 name = "find-real-roots-of-polynomial"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Toru3 <ryuutet@gmail.com>"]
 edition = "2018"
 description = "find all real roots of a polynomial"

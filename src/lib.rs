@@ -304,6 +304,7 @@ fn random_test() {
             .map(|x| BigRational::from(BigInt::from(*x)))
             .collect::<Vec<_>>();
         let f = Polynomial::new(v);
+        let f = f.square_free();
         let limit = BigRational::new(BigInt::from(1), BigInt::from(8));
         let sc = SturmChain::<BigRational>::new(f.clone());
         let roots = sc.find_all_real_roots(&limit);
