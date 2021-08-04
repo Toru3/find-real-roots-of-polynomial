@@ -19,3 +19,6 @@ assert_eq!(roots[0].1, BigRational::new(BigInt::from(-45), BigInt::from(32)));
 assert_eq!(roots[1].0, BigRational::new(BigInt::from(45), BigInt::from(32)));
 assert_eq!(roots[1].1, BigRational::new(BigInt::from(93), BigInt::from(64)));
 ```
+
+# Licence
+AGPL-3.0-or-later
