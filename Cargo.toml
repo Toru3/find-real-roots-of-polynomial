@@ -1,6 +1,6 @@
 [package]
 name = "find-real-roots-of-polynomial"
-version = "0.2.0"
+version = "0.2.1"
 authors = ["Toru3 <ryuutet@gmail.com>"]
 edition = "2018"
 description = "find all real roots of a polynomial"
@@ -12,7 +12,7 @@ keywords = ["algebra", "polynomial", "root-finding"]
 categories = ["algorithms", "mathematics"]
 
 [dependencies]
-polynomial-ring = "0.3.2"
+polynomial-ring = "0.4.1"
 num-traits = "0.2.14"
 [dev-dependencies]
 rand = "0.8.4"
