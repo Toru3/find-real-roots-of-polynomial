@@ -12,11 +12,11 @@ keywords = ["algebra", "polynomial", "root-finding"]
 categories = ["algorithms", "mathematics"]
 
 [dependencies]
-polynomial-ring = "0.4.1"
-num-traits = "0.2.14"
+polynomial-ring = "0.5.0"
+num-traits = "0.2.15"
 [dev-dependencies]
-rand = "0.8.4"
-num = "0.4.0"
+rand = "0.8.5"
+num = "0.4.1"
 [package.metadata.docs.rs]
 rustdoc-args = [
     "--html-in-header",

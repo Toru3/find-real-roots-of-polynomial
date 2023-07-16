@@ -50,7 +50,7 @@ where
     K: Sized + Clone + Ord + Zero + One + Neg<Output = K> + for<'x> DivAssign<&'x K>,
 {
     f.monic();
-    f.coefs().into_iter().map(abs).max().unwrap() + K::one()
+    f.coeffs().iter().cloned().map(abs).max().unwrap() + K::one()
 }
 
 /// Find root of `f` from `(left, right]` by bisection method.
@@ -133,10 +133,10 @@ impl<K: Sized> SturmChain<K> {
             + Ord
             + Zero
             + One
-            + Mul<Output = K>
             + Neg<Output = K>
             + for<'x> AddAssign<&'x K>
             + for<'x> SubAssign<&'x K>
+            + for<'x> MulAssign<&'x K>
             + for<'x> DivAssign<&'x K>,
         for<'x> &'x K: Mul<Output = K> + Div<Output = K>,
     {
