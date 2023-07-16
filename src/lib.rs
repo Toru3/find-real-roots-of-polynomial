@@ -323,8 +323,7 @@ fn a() {
     use polynomial_ring::Polynomial;
     let mut f = Polynomial::<BigRational>::one();
     for i in 1..=20 {
-        let v = vec![-i, 1];
-        let v = v
+        let v = [-i, 1]
             .iter()
             .map(|x| BigRational::from(BigInt::from(*x)))
             .collect::<Vec<_>>();
