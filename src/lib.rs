@@ -284,6 +284,45 @@ impl<K: Sized> SturmChain<K> {
             .map(|(l, r)| bisection_method(f, limit, l, r))
             .collect::<Vec<_>>()
     }
+    /// Determine if input polynomial has an imaginary root.
+    ///
+    /// ```
+    /// use find_real_roots_of_polynomial::SturmChain;
+    /// use polynomial_ring::{polynomial, Polynomial};
+    /// use num::{BigRational, BigInt};
+    /// let v0 = [-1, 0, 1].iter().map(|x| BigRational::from(BigInt::from(*x))).collect::<Vec<_>>();
+    /// let v1 = [1, 0, 1].iter().map(|x| BigRational::from(BigInt::from(*x))).collect::<Vec<_>>();
+    /// let f = Polynomial::new(v0); // f=x^2-1=(x+1)(x-1)
+    /// let g = Polynomial::new(v1); // g=x^2+1=(x+i)(x-i)
+    /// let f_sc = SturmChain::<BigRational>::new(f);
+    /// let g_sc = SturmChain::<BigRational>::new(g);
+    /// assert_eq!(f_sc.has_imaginary_root(), false);
+    /// assert_eq!(g_sc.has_imaginary_root(), true);
+    /// ```
+    pub fn has_imaginary_root(&self) -> bool
+    where
+        K: Clone
+            + Ord
+            + Zero
+            + One
+            + Mul<Output = K>
+            + Neg<Output = K>
+            + for<'x> AddAssign<&'x K>
+            + for<'x> MulAssign<&'x K>
+            + for<'x> DivAssign<&'x K>,
+        for<'x> &'x K: Neg<Output = K> + Mul<Output = K>,
+    {
+        let f = &self.chain[0];
+        if let Some(d) = f.deg() {
+            let m = get_range(f.clone());
+            let n = self.num_real_root(&-&m, &m);
+            debug_assert!(n <= d);
+            n < d
+        } else {
+            // f = 0
+            false
+        }
+    }
 }
 
 #[test]
